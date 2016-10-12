@@ -27,11 +27,16 @@ return res;
 var str;
 function graf( in0, scaleFrom, scaleTo ){
 
-var inr=Math.round(fit(in0, scaleFrom,scaleTo,1,8));
+var toFit= (!isNaN(parseFloat(in0)) && isFinite(in0) ) ? in0 : in0.charCodeAt(0);
+var inScaled=Math.round(fit(toFit, scaleFrom,scaleTo,1,8));
 var baseChar='2580';
+var strAdded=(String.fromCharCode(parseInt(baseChar,16)+inScaled));
+//console.clear();
+//console.log(strAdded);
+return strAdded;
 
-str+=(String.fromCharCode(parseInt(baseChar,16)+inr));
 
-console.clear();
-console.log(str);
+
+
 }
+
